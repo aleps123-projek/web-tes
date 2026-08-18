@@ -1,0 +1,781 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* =========================================================
+   GAMBAR HOME KANAN
+   POSISI TETAP
+========================================================= */
+
+.home-image {
+    position: absolute;
+
+    /* Tetap di kanan */
+    right: -40px;
+
+    /* Posisi vertikal tetap */
+    top: 330px;
+
+    /* UKURAN TETAP */
+    width: 360px;
+    height: 240px;
+
+    overflow: hidden;
+
+    border-radius: 60px 0 0 60px;
+
+    border-left: 3px solid rgba(70, 190, 255, 0.75);
+
+    box-shadow:
+        -5px 0 15px rgba(50, 190, 255, 0.45),
+        -10px 0 35px rgba(50, 170, 255, 0.2);
+
+    z-index: 2;
+
+    animation: munculDariKanan 0.5s ease-out forwards;
+}
+
+.home-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* =========================================================
+   ANIMASI GAMBAR
+========================================================= */
+
+@keyframes munculDariKanan {
+
+    from {
+        transform: translate(100%, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 60px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 16px;
+
+    z-index: 1000;
+
+    color: #45b5ff;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.2);
+
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    animation:
+        topbarMasuk .5s ease-out forwards;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.title {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    line-height: 1.1;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.title-main {
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #45b5ff;
+}
+
+
+.title-sub {
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.8px;
+
+    color: #1976d2;
+}
+
+/* =========================================================
+   ANIMASI TOPBAR
+========================================================= */
+
+@keyframes topbarMasuk {
+
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menu-btn {
+    font-size: 28px;
+
+    cursor: pointer;
+
+    margin-right: 12px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    width: 36px;
+    height: 36px;
+
+    object-fit: contain;
+
+    margin-right: 10px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.35);
+
+    display: none;
+
+    z-index: 998;
+}
+
+
+.sidebar {
+    position: fixed;
+
+    left: -260px;
+    top: 0;
+
+    width: 250px;
+    height: 100%;
+
+    background: white;
+
+    padding: 80px 15px;
+
+    transition: .3s;
+
+    z-index: 999;
+
+    box-shadow:
+        3px 0 10px rgba(0,0,0,.2);
+}
+
+
+.sidebar.active {
+    left: 0;
+}
+
+
+.overlay.active {
+    display: block;
+}
+
+
+/* =========================================================
+   SIDEBAR BUTTON
+========================================================= */
+
+.sidebar button {
+    width: 100%;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 8px 14px;
+
+    margin-bottom: 14px;
+
+    background: #ffffff;
+
+    color: #003b73;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    text-align: left;
+
+    border: 2px solid #e1e8f0;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 0 #cbd5df,
+        0 6px 12px rgba(0,0,0,.12);
+
+    transition: .2s ease;
+}
+
+
+.sidebar button img {
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+.sidebar button:hover,
+.sidebar button:active {
+    background: #cfeaff;
+
+    color: #003b73;
+
+    border: 2px solid #1685d8;
+
+    box-shadow:
+        0 4px 0 #8bb9dc,
+        0 7px 14px rgba(0,100,200,.20);
+
+    transform: translateY(-1px);
+}
+
+
+.sidebar button:active {
+    transform: translateY(2px);
+
+    box-shadow:
+        0 2px 0 #8bb9dc,
+        0 4px 8px rgba(0,100,200,.15);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 1600px;
+
+    padding: 90px 18px 30px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome {
+    display: inline-block;
+
+    padding: 8px 20px;
+
+    margin: 30px 0 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #EAF7FF,
+            white
+        );
+
+    color: #1976d2;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 30px rgba(69,181,255,.25);
+
+    letter-spacing: .2px;
+}
+
+
+/* =========================================================
+   JUDUL
+========================================================= */
+
+.judul {
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: black;
+
+    margin-top: 30px;
+
+    margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   NAMA SEKOLAH
+========================================================= */
+
+.sekolah {
+    margin: 4px 0 0;
+
+    text-align: left;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    color: #1976d2;
+}
+
+
+/* =========================================================
+   TEKS
+========================================================= */
+
+.teks {
+    width: 45%;
+
+    text-align: left;
+
+    color: #6B7280;
+
+    font-size: 14px;
+
+    line-height: 1;
+
+    font-weight: 300;
+
+    margin-top: 20px;
+}
+
+/* =========================================================
+   PILIH MODE
+========================================================= */
+
+.pilih-mode {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    margin-top: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #45b5ff,
+            #1976d2
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 30px rgba(69,181,255,.25);
+
+    letter-spacing: .2px;
+}
+
+
+/* =========================================================
+   PILIH
+========================================================= */
+
+.pilih {
+    color: #003b7a;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin: 20px 0;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   MODE SECTION
+   TIDAK ADA HORIZONTAL SCROLL
+========================================================= */
+
+/* =========================================================
+   MODE SLIDER
+   HANYA BAGIAN INI YANG BISA DIGESER KIRI / KANAN
+========================================================= */
+
+.mode-slider {
+    width: 100%;
+    margin-top: 20px;
+
+    overflow: hidden;
+}
+
+
+/* AREA YANG BISA DIGESER */
+
+.mode-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+
+    scroll-snap-type: x mandatory;
+
+    overscroll-behavior-x: contain;
+}
+
+
+/* Hilangkan scrollbar */
+
+.mode-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* TRACK */
+
+.mode-track {
+    display: flex;
+
+    flex-direction: row;
+
+    gap: 20px;
+
+    width: max-content;
+
+    padding: 10px 20px 25px;
+}
+
+
+/* =========================================================
+   MODE CARD
+========================================================= */
+
+.mode-card {
+    width: 280px;
+
+    min-width: 280px;
+    max-width: 280px;
+
+    flex-shrink: 0;
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    position: relative;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+    scroll-snap-align: center;
+}conten
+
+
+/* =========================================================
+   LABEL MODE
+========================================================= */
+
+.mode-title {
+    display: block;
+
+    width: fit-content;
+
+    margin: 0 0 15px;
+
+    padding: 7px 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #67c7ff,
+            #1976d2
+        );
+
+    color: white;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,.35),
+        0 4px 8px rgba(25,118,210,.25);
+}
+
+
+/* =========================================================
+   FOTO MODE
+========================================================= */
+
+.mode-preview {
+    display: block;
+
+    width: 90%;
+
+    height: 150px;
+
+    object-fit: contain;
+
+    margin: 0 auto 20px;
+
+    border: 2px solid #222;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   FITUR
+========================================================= */
+
+.mode-features {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+}
+
+
+.feature {
+    width: 33.33%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.feature img {
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+
+    margin-bottom: 6px;
+}
+
+
+.feature span {
+    color: #6B7280;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   TOMBOL MULAI
+========================================================= */
+
+.start-btn {
+    width: 100%;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #67c7ff,
+            #1976d2
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,.3),
+        0 5px 12px rgba(25,118,210,.25);
+}
+
+
+.start-btn img {
+    width: 28px;
+    height: 28px;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    margin-top: 40px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    color: #666;
+
+    border-top: 1px solid #ddd;
+}
+
+
+/* =========================================================
+   KUNCI HORIZONTAL
+========================================================= */
+
