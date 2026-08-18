@@ -39,11 +39,11 @@ body {
 .home-image {
     position: absolute;
 
-    /* Tetap di kanan */
-    right: -40px;
+        /* Tetap di kanan */
+    right: -140px;
 
     /* Posisi vertikal tetap */
-    top: 330px;
+    top: 230px;
 
     /* UKURAN TETAP */
     width: 360px;
@@ -354,18 +354,14 @@ body {
    CONTENT
 ========================================================= */
 
-.content {
+.content{
     position: relative;
-
     width: 100%;
 
-    min-height: 1600px;
-
-    padding: 90px 18px 30px;
+    padding: 90px 18px 20px;
 
     overflow: hidden;
 }
-
 
 /* =========================================================
    WELCOME
